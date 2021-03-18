@@ -1,0 +1,24 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.map-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#map{
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar-menu{
+    overflow: scroll;
+    height: 100vh;
+}
+
+/*# sourceMappingURL=/style.8acb7da0.css.map */
