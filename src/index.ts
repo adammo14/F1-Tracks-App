@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-import { Circuit } from './Circuit';
 import { CustomMap} from './CustomMap';
 
 const customMap = new CustomMap('map');

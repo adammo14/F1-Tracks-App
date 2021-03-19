@@ -10,8 +10,8 @@ export class Circuit implements Pin {
     constructor(circuitName: string, lat: number, long: number) {
         this.circuitName = circuitName;
         this.Location = {
-            lat: toString(lat),
-            long: toString(long)
+            lat: lat.toString(),
+            long: long.toString()
         }
     }
 

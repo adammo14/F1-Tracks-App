@@ -1920,7 +1920,10 @@ module.exports = require('./lib/axios');
 },{"./lib/axios":"node_modules/axios/lib/axios.js"}],"src/CustomMap.ts":[function(require,module,exports) {
 "use strict";
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CustomMap = void 0;
 
 var CustomMap =
 /** @class */
@@ -1961,9 +1964,17 @@ exports.CustomMap = CustomMap;
 },{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
-exports.__esModule = true;
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
 
-var axios_1 = require("axios");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var axios_1 = __importDefault(require("axios"));
 
 var CustomMap_1 = require("./CustomMap");
 
@@ -1971,7 +1982,7 @@ var customMap = new CustomMap_1.CustomMap('map'); // Gets circuits
 
 var getCircuits = function getCircuits(year) {
   var url = "http://ergast.com/api/f1/" + year + "/circuits.json";
-  axios_1["default"].get(url).then(function (res) {
+  axios_1.default.get(url).then(function (res) {
     var circuits = res.data.MRData.CircuitTable.Circuits;
     circuits.forEach(function (circuit) {
       customMap.addMarker(circuit);
@@ -1982,7 +1993,7 @@ var getCircuits = function getCircuits(year) {
 
 var getStandings = function getStandings(year) {
   var url = "http://ergast.com/api/f1/" + year + "/driverStandings.json";
-  axios_1["default"].get(url).then(function (res) {
+  axios_1.default.get(url).then(function (res) {
     var standings = res.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
     populateStandings(standings);
   });
@@ -2059,7 +2070,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54261" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61379" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
