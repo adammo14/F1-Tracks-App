@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "prestart": "parcel build ./src/index.html"
+    "build": "parcel build ./src/index.html"
   },
+  "heroku-run-build-script": true,
   "author": "",
   "license": "ISC",
   "devDependencies": {
