@@ -4,6 +4,8 @@ import { CustomMap} from './CustomMap';
 
 const customMap = new CustomMap('map');
 
+console.log('index.ts')
+
 // Gets circuits
 const getCircuits = (year: number) => {
     let url = `http://ergast.com/api/f1/${year}/circuits.json`;
@@ -11,7 +13,7 @@ const getCircuits = (year: number) => {
     axios.get(url).then(res => {
         const circuits = res.data.MRData.CircuitTable.Circuits;
         circuits.forEach(circuit => {
-            customMap.addMarker(circuit)
+            customMap.addMarker(circuit);
         });
     });
 }
@@ -27,19 +29,19 @@ const getStandings = (year: number) => {
 }
 
 // Dynamically populates the driver standings based on user input
-const populateStandings = (result) => {
+const populateStandings = (result: any) => {
     removeElements('driver');
-    const table = document.getElementById("standingsTable");
+    const table = document.getElementById("standingsTable") as HTMLTableElement;
 
     // helper function        
-    function addCell(tr, text) {
+    function addCell(tr: any, text: any) {
         var td = tr.insertCell();
         td.textContent = text;
         return td;
     }
 
     // insert data
-    result.forEach(function (item) {
+    result.forEach(function (item: any) {
         var row = table.insertRow();
         row.className = "driver";
         addCell(row, item.position);
@@ -50,7 +52,7 @@ const populateStandings = (result) => {
 
 // Deletes old drivers from the table
 const removeElements = (className: string) => {
-    var elements = document.getElementsByClassName(className);
+    const elements = document.getElementsByClassName(className);
     while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
     }
@@ -60,8 +62,10 @@ const removeElements = (className: string) => {
 var selectYear =  document.getElementById('selectYear');
 if (typeof(selectYear) != 'undefined' && selectYear != null) {
     selectYear.onchange = (e) => {
-        getCircuits(e.target.value);
-        getStandings(e.target.value);
+        const element = e.currentTarget as HTMLInputElement;
+        const value = element.value
+        getCircuits(parseInt(value));
+        getStandings(parseInt(value));
     }
 }
 
